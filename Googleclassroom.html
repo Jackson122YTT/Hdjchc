@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>⚡ Blooket Utility Suite | Game Enhancer</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      user-select: none;
+    }
+
+    body {
+      background: linear-gradient(145deg, #0a0f1e 0%, #0c1222 100%);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, 'Poppins', sans-serif;
+      padding: 20px;
+    }
+
+    /* glass panel */
+    .hack-container {
+      max-width: 750px;
+      width: 100%;
+      background: rgba(18, 25, 45, 0.75);
+      backdrop-filter: blur(12px);
+      border-radius: 48px;
+      border: 1px solid rgba(72, 187, 255, 0.3);
+      box-shadow: 0 25px 45px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(0, 255, 255, 0.1) inset;
+      overflow: hidden;
+      transition: all 0.2s ease;
+    }
+
+    /* header with neon */
+    .header {
+      background: rgba(0, 10, 25, 0.6);
+      padding: 1.4rem 2rem;
+      border-bottom: 1px solid #2dffb0;
+      text-align: center;
+    }
+
+    .header h1 {
+      font-size: 1.9rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, #A3FFE6, #4d9eff);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      letter-spacing: -0.3px;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .badge {
+      background: #1f2a3e;
+      border-radius: 40px;
+      padding: 4px 12px;
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: #7df9ff;
+      border: 1px solid #2affb6;
+    }
+
+    .sub {
+      color: #8e9bb5;
+      margin-top: 8px;
+      font-size: 0.8rem;
+    }
+
+    /* hack cards grid */
+    .cards-grid {
+      padding: 1.8rem 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+
+    .hack-card {
+      background: rgba(12, 20, 35, 0.7);
+      border-radius: 28px;
+      border-left: 4px solid;
+      transition: 0.2s;
+      backdrop-filter: blur(4px);
+      padding: 0.2rem 0;
+    }
+
+    .card-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 1.5rem;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .info h3 {
+      font-size: 1.35rem;
+      font-weight: 600;
+      color: #f0f3ff;
+      letter-spacing: -0.2px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .info p {
+      font-size: 0.8rem;
+      color: #9aa9c1;
+      margin-top: 6px;
+    }
+
+    /* toggle / button */
+    .toggle-switch {
+      position: relative;
+      width: 52px;
+      height: 26px;
+      background: #2c3548;
+      border-radius: 40px;
+      cursor: pointer;
+      transition: 0.2s;
+      box-shadow: inset 0 1px 3px rgba(0,0,0,0.4);
+    }
+
+    .toggle-switch.active {
+      background: #1b8c5e;
+      box-shadow: 0 0 8px #2affb0;
+    }
+
+    .toggle-knob {
+      position: absolute;
+      width: 22px;
+      height: 22px;
+      background: white;
+      border-radius: 50%;
+      top: 2px;
+      left: 3px;
+      transition: 0.2s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+    }
+
+    .toggle-switch.active .toggle-knob {
+      left: 27px;
+      background: #eef5ff;
+    }
+
+    .action-btn {
+      background: #1e2b3c;
+      border: none;
+      color: #ccdeff;
+      font-weight: 600;
+      padding: 8px 18px;
+      border-radius: 60px;
+      font-size: 0.85rem;
+      cursor: pointer;
+      transition: all 0.2s;
+      font-family: monospace;
+      letter-spacing: 0.3px;
+      backdrop-filter: blur(4px);
+    }
+
+    .action-btn.primary {
+      background: #1e6f5c;
+      color: white;
+      box-shadow: 0 1px 4px rgba(0,255,170,0.3);
+    }
+
+    .action-btn.danger {
+      background: #7a2e4a;
+      color: #ffc2d1;
+    }
+
+    .action-btn:hover {
+      transform: scale(0.96);
+      filter: brightness(1.1);
+    }
+
+    .warning-note {
+      background: rgba(0,0,0,0.5);
+      margin: 0 2rem 1.8rem 2rem;
+      border-radius: 20px;
+      padding: 12px 20px;
+      font-size: 0.75rem;
+      color: #b0c4de;
+      border: 1px dashed #4aa0ff;
+      text-align: center;
+    }
+
+    .footer {
+      padding: 0.8rem 2rem 1.4rem;
+      text-align: center;
+      font-size: 0.7rem;
+      color: #5f7592;
+      border-top: 1px solid rgba(72,187,255,0.2);
+    }
+
+    @keyframes pulse {
+      0% { opacity: 0.7; }
+      100% { opacity: 1; text-shadow: 0 0 2px cyan; }
+    }
+
+    .status-badge {
+      font-size: 0.7rem;
+      background: #0f1a24;
+      padding: 3px 10px;
+      border-radius: 50px;
+    }
+  </style>
+</head>
+<body>
+<div class="hack-container">
+  <div class="header">
+    <h1>🎮 BLOOKET <span style="font-size:1.2rem;">⚡</span> ENHANCER <span class="badge">v3.1.6</span></h1>
+    <div class="sub">⚡ instant answers · auto farm · infinite tokens · speed hack ⚡</div>
+  </div>
+
+  <div class="cards-grid">
+    <!-- Instant correct answer (auto answer) -->
+    <div class="hack-card" style="border-left-color: #2affb0;">
+      <div class="card-content">
+        <div class="info">
+          <h3>✅ INSTANT CORRECT <span style="font-size:0.8rem;">(auto-answer)</span></h3>
+          <p>Automatically selects the right option in any question based on live data</p>
+        </div>
+        <div class="toggle-switch" id="autoAnswerToggle">
+          <div class="toggle-knob"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Infinite Tokens / Coins hack (solo + live) -->
+    <div class="hack-card" style="border-left-color: #ffcf4a;">
+      <div class="card-content">
+        <div class="info">
+          <h3>💰 INFINITE TOKENS</h3>
+          <p>Lock current tokens to high value & auto-add on spend (works in most game modes)</p>
+        </div>
+        <div class="toggle-switch" id="infiniteTokensToggle">
+          <div class="toggle-knob"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Speed Hack / Game Multiplier -->
+    <div class="hack-card" style="border-left-color: #ff7675;">
+      <div class="card-content">
+        <div class="info">
+          <h3>⚡ SPEED HACK (2.5x)</h3>
+          <p>Boost game timers / animations / answering speed globally</p>
+        </div>
+        <button class="action-btn primary" id="speedHackBtn">🔧 ACTIVATE 2.5x</button>
+      </div>
+    </div>
+
+    <!-- Auto Farm XP (repeat clicks on gold / chests) -->
+    <div class="hack-card" style="border-left-color: #a55eff;">
+      <div class="card-content">
+        <div class="info">
+          <h3>🌾 AUTO FARMER</h3>
+          <p>Simulates rapid clicking on game objects (blooks, chests, tokens) every 150ms</p>
+        </div>
+        <div class="toggle-switch" id="autoFarmToggle">
+          <div class="toggle-knob"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- reveal all answers in the console + alert (visual) -->
+    <div class="hack-card" style="border-left-color: #f78fb3;">
+      <div class="card-content">
+        <div class="info">
+          <h3>🔍 REVEAL ANSWERS</h3>
+          <p>Inject answer highlighter & log correct answers to console + popup on new question</p>
+        </div>
+        <button class="action-btn primary" id="revealAnswersBtn">📡 SHOW ANSWERS</button>
+      </div>
+    </div>
+
+    <!-- reset all hacks -->
+    <div class="hack-card" style="border-left-color: #778beb;">
+      <div class="card-content">
+        <div class="info">
+          <h3>🔄 RESET ALL HACKS</h3>
+          <p>Remove injected scripts, restore timers, stop farmers</p>
+        </div>
+        <button class="action-btn danger" id="resetAllBtn">⚠️ RESET & CLEAN</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="warning-note">
+    🧠 *These scripts run inside your Blooket tab (inject via console or bookmarklet). 
+    For best results: open Blooket game, then activate toggles. Works on most live games.*
+  </div>
+  <div class="footer">
+    💡 TIP: Use after joining a game. All hacks are client-side — enjoy enhanced gameplay!
+  </div>
+</div>
+
+<script>
+  // ---------- GLOBAL STATE & HELPER FUNCTIONS ----------
+  let activeIntervals = [];
+  let activeMutationObservers = [];
+  let activeAnswerListener = null;
+  let originalGameLoop = null;
+  let speedActive = false;
+  let originalSetInterval = window.setInterval;
+  let originalSetTimeout = window.setTimeout;
+
+  // safe injection for overrides
+  function clearAllIntervalsAndObservers() {
+    // clear all intervals from autoFarm and other timers
+    for (let i = 0; i < activeIntervals.length; i++) {
+      clearInterval(activeIntervals[i]);
+    }
+    activeIntervals = [];
+    // disconnect observers
+    for (let obs of activeMutationObservers) {
+      if (obs && obs.disconnect) obs.disconnect();
+    }
+    activeMutationObservers = [];
+    // remove answer listener
+    if (activeAnswerListener && typeof activeAnswerListener === 'function') {
+      // we don't have a direct remove, but we'll null it.
+      activeAnswerListener = null;
+    }
+    // if speedhack active, revert intervals/timeouts to normal
+    if (speedActive) {
+      revertSpeedHack();
+      speedActive = false;
+    }
+  }
+
+  // speed hack: override timers to run faster (multiplier 0.4x original delay)
+  function applySpeedHack(multiplier = 0.4) {  // 2.5x speed -> delay * 0.4
+    if (window.__blooketSpeedActive) return;
+    window.__blooketSpeedActive = true;
+    // preserve original functions
+    if (!window.__nativeSetInterval) {
+      window.__nativeSetInterval = window.setInterval;
+      window.__nativeSetTimeout = window.setTimeout;
+      window.__nativeClearInterval = window.clearInterval;
+      window.__nativeClearTimeout = window.clearTimeout;
+    }
+    window.setInterval = function(cb, interval, ...args) {
+      if (typeof cb === 'function') {
+        let newInterval = interval * multiplier;
+        if (newInterval < 1) newInterval = 1;
+        return window.__nativeSetInterval(cb, newInterval, ...args);
+      }
+      return window.__nativeSetInterval(cb, interval, ...args);
+    };
+    window.setTimeout = function(cb, delay, ...args) {
+      let newDelay = delay * multiplier;
+      if (newDelay < 0) newDelay = 0;
+      return window.__nativeSetTimeout(cb, newDelay, ...args);
+    };
+    window.clearInterval = function(id) {
+      return window.__nativeClearInterval(id);
+    };
+    window.clearTimeout = function(id) {
+      return window.__nativeClearTimeout(id);
+    };
+    // also patch requestAnimationFrame? optional but not needed
+    console.log("%c⚡ SPEED HACK ACTIVE (2.5x) — game timers accelerated!", "color: #2affb0; font-size: 14px");
+    alert("🚀 Speed Hack Activated! Timers and animations will run faster.");
+  }
+
+  function revertSpeedHack() {
+    if (window.__nativeSetInterval) {
+      window.setInterval = window.__nativeSetInterval;
+      window.setTimeout = window.__nativeSetTimeout;
+      window.clearInterval = window.__nativeClearInterval;
+      window.clearTimeout = window.__nativeClearTimeout;
+      window.__blooketSpeedActive = false;
+      console.log("%c⏱️ Speed hack reverted.", "color: #ffaa66");
+      alert("⏱️ Speed Hack reverted. Normal timing restored.");
+    }
+  }
+
+  // ----- AUTO ANSWER (instant correct) -----
+  let autoAnswerActive = false;
+  let answerInterval = null;
+  let lastQuestionText = "";
+
+  function findCorrectAnswer() {
+    // Attempt to extract correct answer from DOM / global game data (blooket)
+    // Strategy: look for question text and compare to visible answer choices with correct indicator
+    // Or hook into window.blooketGameState if available. Many hacks use data from window._blooket or __blooket
+    let correctAnswerText = null;
+    // 1) Check if there's a highlighted "correct" class in any answer option (sometimes after reveal)
+    const allOptions = document.querySelectorAll('[class*="answer"], [class*="option"], .answer-item, .quiz-option, button[data-correct]');
+    for (let opt of allOptions) {
+      if (opt.getAttribute('data-correct') === 'true' || opt.classList.contains('correct') || opt.innerText.includes('✔')) {
+        correctAnswerText = opt.innerText.trim();
+        break;
+      }
+    }
+    // 2) attempt to parse window.blooketGame.question bank
+    if (!correctAnswerText && window.blooketGame && window.blooketGame.currentQuestion) {
+      let correctChoice = window.blooketGame.currentQuestion.correct;
+      if (correctChoice) correctAnswerText = correctChoice;
+    }
+    // 3) find any visible radio/button that indicates correct via aria or data
+    if (!correctAnswerText) {
+      let possibleCorrect = document.querySelector('[data-correct-answer="true"], .correct-answer');
+      if (possibleCorrect) correctAnswerText = possibleCorrect.innerText;
+    }
+    if (correctAnswerText) {
+      // find button or div containing that text and click
+      const elements = Array.from(document.querySelectorAll('button, .answer-btn, .quiz-answer, [role="button"]'));
+      for (let el of elements) {
+        if (el.innerText.trim() === correctAnswerText || el.innerText.includes(correctAnswerText.substring(0, 15))) {
+          el.click();
+          console.log(`✅ Auto-answer clicked: "${correctAnswerText}"`);
+          return true;
+        }
+      }
+    }
+    // fallback: simulate click on first answer that doesn't have wrong style
+    const anyAnswer = document.querySelector('.answer-item:not(.wrong), .quiz-option:first-child');
+    if (anyAnswer) {
+      anyAnswer.click();
+      console.log("⚠️ auto-answer fallback: clicked first option");
+      return true;
+    }
+    return false;
+  }
+
+  function startAutoAnswer() {
+    if (answerInterval) clearInterval(answerInterval);
+    answerInterval = setInterval(() => {
+      if (!autoAnswerActive) return;
+      // detect if a new question is present (modal or visible question container)
+      const questionContainer = document.querySelector('.question-text, .question, [class*="Question"]');
+      if (questionContainer && questionContainer.innerText !== lastQuestionText) {
+        lastQuestionText = questionContainer.innerText;
+        setTimeout(() => findCorrectAnswer(), 80);
+      } else {
+        // also attempt to answer if any unanswered visible (covers multiple choice)
+        const unanswered = document.querySelector('.answer-item:not(.selected), .quiz-option:not(.selected)');
+        if (unanswered && document.querySelector('.question-text')) {
+          findCorrectAnswer();
+        }
+      }
+    }, 500);
+    activeIntervals.push(answerInterval);
+  }
+
+  function stopAutoAnswer() {
+    if (answerInterval) {
+      clearInterval(answerInterval);
+      answerInterval = null;
+    }
+    autoAnswerActive = false;
+  }
+
+  // ----- INFINITE TOKENS HACK -----
+  let infiniteTokensActive = false;
+  let tokenInterval = null;
+
+  function applyInfiniteTokens() {
+    // override token setter / constantly set to high number
+    if (tokenInterval) clearInterval(tokenInterval);
+    tokenInterval = setInterval(() => {
+      if (!infiniteTokensActive) return;
+      // common token/coin elements & global variables
+      if (window.blooketGame && typeof window.blooketGame.addTokens === 'function') {
+        // override method to always add huge amount
+        if (!window.__originalAddTokens) {
+          window.__originalAddTokens = window.blooketGame.addTokens;
+          window.blooketGame.addTokens = function(amount) {
+            return window.__originalAddTokens.call(this, Math.max(amount, 5000));
+          };
+        }
+        window.blooketGame.tokens = 9999999;
+      }
+      // find token display and set inner text to 99999
+      const tokenDisplays = document.querySelectorAll('[class*="token"], [class*="coin"], .balance, .token-count');
+      tokenDisplays.forEach(el => {
+        if (el.innerText && !isNaN(parseInt(el.innerText))) {
+          el.innerText = "∞ 99999";
+        }
+      });
+      // localStorage token modifier
+      let localTokens = localStorage.getItem('blooketTokens');
+      if (localTokens) localStorage.setItem('blooketTokens', '999999');
+    }, 300);
+    activeIntervals.push(tokenInterval);
+    console.log("💰 Infinite tokens: active (display & backend simulation)");
+  }
+
+  function stopInfiniteTokens() {
+    if (tokenInterval) {
+      clearInterval(tokenInterval);
+      tokenInterval = null;
+    }
+    if (window.__originalAddTokens && window.blooketGame) {
+      window.blooketGame.addTokens = window.__originalAddTokens;
+      window.__originalAddTokens = null;
+    }
+  }
+
+  // ----- AUTO FARM (fast click on interactive elements) -----
+  let autoFarmActive = false;
+  let farmInterval = null;
+  function startAutoFarm() {
+    if (farmInterval) clearInterval(farmInterval);
+    farmInterval = setInterval(() => {
+      if (!autoFarmActive) return;
+      // find all clickable objects: blooks, chests, tokens, or "claim" buttons
+      const clickTargets = document.querySelectorAll('[class*="blook"], [class*="chest"], [class*="token-grab"], .clickable, .reward, .claim-btn, [class*="collect"]');
+      for (let target of clickTargets) {
+        if (target.offsetParent !== null) {
+          target.click();
+        }
+      }
+      // additionally find any button with "collect" "earn"
+      const buttons = Array.from(document.querySelectorAll('button')).filter(btn => 
+        btn.innerText.includes('Collect') || btn.innerText.includes('Claim') || btn.innerText.includes('Earn') || btn.innerText.includes('Open')
+      );
+      buttons.forEach(btn => btn.click());
+    }, 140);
+    activeIntervals.push(farmInterval);
+    console.log("🌾 Auto farmer: rapidly collecting interactive objects");
+  }
+  function stopAutoFarm() {
+    if (farmInterval) {
+      clearInterval(farmInterval);
+      farmInterval = null;
+    }
+  }
+
+  // ----- REVEAL ANSWERS (inject answer overlay & console) -----
+  let revealActive = false;
+  function revealAnswersInjection() {
+    if (revealActive) return;
+    revealActive = true;
+    // override or hook into question render
+    function extractAndShow() {
+      let correctAnswer = null;
+      if (window.blooketGame && window.blooketGame.currentQuestion) {
+        correctAnswer = window.blooketGame.currentQuestion.correct;
+      } else {
+        // find data-correct
+        const correctElem = document.querySelector('[data-correct="true"], .correct-answer-text');
+        if (correctElem) correctAnswer = correctElem.innerText;
+      }
+      if (correctAnswer) {
+        console.log(`%c🔮 CORRECT ANSWER: ${correctAnswer}`, "background: #00aa66; color: white; padding: 3px; border-radius: 8px");
+        // floating notif
+        const notif = document.createElement('div');
+        notif.innerText = `✨ Answer: ${correctAnswer} ✨`;
+        notif.style.position = 'fixed';
+        notif.style.bottom = '20px';
+        notif.style.right = '20px';
+        notif.style.backgroundColor = '#0a1f2e';
+        notif.style.color = '#bbffdd';
+        notif.style.padding = '8px 16px';
+        notif.style.borderRadius = '40px';
+        notif.style.zIndex = '99999';
+        notif.style.fontWeight = 'bold';
+        notif.style.border = '1px solid cyan';
+        notif.style.fontSize = '14px';
+        notif.style.fontFamily = 'monospace';
+        document.body.appendChild(notif);
+        setTimeout(() => notif.remove(), 3000);
+      } else {
+        console.log("%c[Reveal] Could not detect correct answer automatically. Try answering once to reveal pattern.", "color: orange");
+      }
+    }
+    // watch for DOM changes that indicate new question
+    const observer = new MutationObserver(() => {
+      if (document.querySelector('.question-text, .question')) {
+        extractAndShow();
+      }
+    });
+    observer.observe(document.body, { childList: true, subtree: true });
+    activeMutationObservers.push(observer);
+    extractAndShow();
+    alert("🔍 Reveal Answers active! Correct answers will appear in console + popup.");
+  }
+
+  // ----- RESET EVERYTHING -----
+  function fullReset() {
+    // stop all active features
+    if (autoAnswerActive) stopAutoAnswer();
+    autoAnswerActive = false;
+    document.getElementById('autoAnswerToggle').classList.remove('active');
+    
+    if (infiniteTokensActive) stopInfiniteTokens();
+    infiniteTokensActive = false;
+    document.getElementById('infiniteTokensToggle').classList.remove('active');
+    
+    if (autoFarmActive) stopAutoFarm();
+    autoFarmActive = false;
+    document.getElementById('autoFarmToggle').classList.remove('active');
+    
+    if (speedActive) revertSpeedHack();
+    speedActive = false;
+    
+    revealActive = false;
+    clearAllIntervalsAndObservers();
+    
+    // reset potential overrides
+    if (window.__originalAddTokens && window.blooketGame) {
+      window.blooketGame.addTokens = window.__originalAddTokens;
+      window.__originalAddTokens = null;
+    }
+    console.clear();
+    console.log("%c🧹 All Blooket hacks have been reset.", "color: #ff8888; font-size: 14px");
+    alert("🧹 All enhancements cleared. Page may need reload if weird behavior persists.");
+  }
+
+  // ----- UI Toggle Handlers -----
+  document.getElementById('autoAnswerToggle').addEventListener('click', (e) => {
+    const toggle = document.getElementById('autoAnswerToggle');
+    if (!autoAnswerActive) {
+      autoAnswerActive = true;
+      startAutoAnswer();
+      toggle.classList.add('active');
+      console.log("Auto-answer ENABLED");
+    } else {
+      autoAnswerActive = false;
+      stopAutoAnswer();
+      toggle.classList.remove('active');
+      console.log("Auto-answer DISABLED");
+    }
+  });
+
+  document.getElementById('infiniteTokensToggle').addEventListener('click', () => {
+    const toggle = document.getElementById('infiniteTokensToggle');
+    if (!infiniteTokensActive) {
+      infiniteTokensActive = true;
+      applyInfiniteTokens();
+      toggle.classList.add('active');
+      alert("💰 Infinite Tokens Active! Your balance will appear maxed.");
+    } else {
+      infiniteTokensActive = false;
+      stopInfiniteTokens();
+      toggle.classList.remove('active');
+    }
+  });
+
+  document.getElementById('autoFarmToggle').addEventListener('click', () => {
+    const toggle = document.getElementById('autoFarmToggle');
+    if (!autoFarmActive) {
+      autoFarmActive = true;
+      startAutoFarm();
+      toggle.classList.add('active');
+      console.log("🌾 Auto-farm started");
+    } else {
+      autoFarmActive = false;
+      stopAutoFarm();
+      toggle.classList.remove('active');
+    }
+  });
+
+  document.getElementById('speedHackBtn').addEventListener('click', () => {
+    if (!speedActive) {
+      applySpeedHack(0.4);
+      speedActive = true;
+    } else {
+      revertSpeedHack();
+      speedActive = false;
+    }
+  });
+
+  document.getElementById('revealAnswersBtn').addEventListener('click', () => {
+    revealAnswersInjection();
+  });
+
+  document.getElementById('resetAllBtn').addEventListener('click', () => {
+    fullReset();
+  });
+
+  // startup cleanup: ensure no conflicts if page already has scripts
+  window.addEventListener('load', () => {
+    console.log("%c⚡ Blooket Enhancer Panel Ready — toggle any hack during gameplay!", "color: #00ffc3; font-size: 16px");
+  });
+</script>
+</body>
+</html>
