@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>Blooket Hack Popup • Bookmarklet Injector</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: linear-gradient(135deg, #0a0f1e 0%, #0c1222 100%);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 900px;
+      width: 100%;
+      background: rgba(10, 20, 35, 0.95);
+      backdrop-filter: blur(10px);
+      border-radius: 48px;
+      border: 1px solid rgba(0, 255, 200, 0.5);
+      box-shadow: 0 25px 45px rgba(0, 0, 0, 0.6);
+      overflow: hidden;
+    }
+
+    .header {
+      background: linear-gradient(135deg, #0a1428, #060b18);
+      padding: 1.8rem 2rem;
+      text-align: center;
+      border-bottom: 2px solid #2affb0;
+    }
+
+    .header h1 {
+      font-size: 2rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, #A3FFE6, #4d9eff);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .badge {
+      background: #1f2a3e;
+      border-radius: 40px;
+      padding: 4px 14px;
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: #7df9ff;
+      display: inline-block;
+      margin-top: 10px;
+      border: 1px solid #2affb0;
+    }
+
+    .sub {
+      color: #9aaec5;
+      margin-top: 10px;
+      font-size: 0.85rem;
+    }
+
+    .feature-box {
+      background: #ff980020;
+      border-left: 4px solid #ffaa44;
+      margin: 1.5rem 2rem 0.5rem 2rem;
+      padding: 14px 20px;
+      border-radius: 20px;
+    }
+
+    .bookmarklet-area {
+      background: #0c1428;
+      margin: 1.5rem 2rem;
+      border-radius: 32px;
+      padding: 1.5rem;
+      border: 1px solid #2a3a55;
+      text-align: center;
+    }
+
+    .drag-button {
+      background: linear-gradient(135deg, #1e6f5c, #0f4c3f);
+      border: none;
+      color: white;
+      font-weight: bold;
+      padding: 14px 28px;
+      border-radius: 60px;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: 0.2s;
+      width: 100%;
+      font-family: monospace;
+      margin: 10px 0;
+    }
+
+    .drag-button:hover {
+      transform: scale(0.98);
+      box-shadow: 0 0 15px #2affb0;
+    }
+
+    .code-preview {
+      background: #000000aa;
+      padding: 12px;
+      border-radius: 16px;
+      font-family: 'Courier New', monospace;
+      font-size: 0.65rem;
+      word-break: break-all;
+      color: #b3ffcf;
+      border: 1px solid #2affb0;
+      margin: 15px 0;
+      max-height: 100px;
+      overflow: auto;
+    }
+
+    .hack-buttons-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 12px;
+      margin: 1.5rem 2rem;
+    }
+
+    .hack-card {
+      background: #111c2c;
+      border: 1px solid #2d4a6e;
+      border-radius: 24px;
+      padding: 12px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .hack-card:hover {
+      background: #1a2c44;
+      border-color: #2affb0;
+      transform: translateY(-2px);
+    }
+
+    .hack-emoji {
+      font-size: 1.8rem;
+    }
+
+    .hack-title {
+      font-weight: bold;
+      color: #eef5ff;
+      margin: 8px 0 4px;
+    }
+
+    .hack-desc {
+      font-size: 0.7rem;
+      color: #8dabcf;
+    }
+
+    .footer {
+      padding: 1rem 2rem 1.5rem;
+      text-align: center;
+      font-size: 0.7rem;
+      color: #5f7592;
+      border-top: 1px solid #1e3347;
+    }
+
+    .success-note {
+      background: #1a4a3a;
+      margin: 0 2rem 1rem 2rem;
+      padding: 10px;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      text-align: center;
+      color: #ccffdd;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <div class="header">
+    <h1>🎮 BLOOKET HACK POPUP</h1>
+    <div class="badge">✨ VISUAL POPUP MENU • NO CONSOLE NEEDED</div>
+    <div class="sub">Drag the bookmarklet → click on Blooket → a hack menu will appear on screen!</div>
+  </div>
+
+  <div class="feature-box">
+    ⭐ <strong>FIX FOR "NO POPUP":</strong> The bookmarklet below creates a <strong style="color:#2affb0">FLOATING CONTROL PANEL</strong> directly on the Blooket page. 
+    After dragging to bookmarks bar and clicking on <strong>blooket.com/play</strong>, you'll see a purple/cyan popup with all hacks!
+  </div>
+
+  <div class="bookmarklet-area">
+    <div style="font-size: 1.1rem; font-weight: bold; margin-bottom: 12px;">🚀 DRAG THIS TO BOOKMARKS BAR</div>
+    <a id="bookmarkletLink" href="#" style="text-decoration: none;">
+      <div class="drag-button" id="mainDragBtn">📌 BLOOKET HACK MENU (POPUP)</div>
+    </a>
+    <div class="code-preview" id="previewCode">Loading bookmarklet code...</div>
+    <p style="font-size:0.7rem; margin-top: 12px;">💡 <strong>How to use (Chromebook):</strong><br>
+    1. Drag the GREEN button above to your bookmarks bar.<br>
+    2. Go to <strong>play.blooket.com</strong> and JOIN a game.<br>
+    3. Click the bookmark → a <strong>POPUP MENU</strong> will appear on the right side of the screen!<br>
+    ✅ No console, no extensions — works on school Chromebooks.
+    </p>
+  </div>
+
+  <div class="success-note">
+    🔥 The bookmarklet creates a VISUAL floating window with toggle buttons! You'll see it instantly after clicking.
+  </div>
+
+  <div style="margin: 0 2rem 0.5rem 2rem;">
+    <h3 style="color:#bbf0ff; font-size:1rem;">⚡ Quick drag hacks (individual popups)</h3>
+    <p style="font-size:0.7rem; color:#88aadd;">Each button below = separate bookmarklet. Drag to bookmarks bar, then click on Blooket.</p>
+  </div>
+
+  <div class="hack-buttons-grid">
+    <div class="hack-card" id="cardAutoAnswer">
+      <div class="hack-emoji">✅</div>
+      <div class="hack-title">Instant Correct</div>
+      <div class="hack-desc">Auto-select right answer</div>
+    </div>
+    <div class="hack-card" id="cardInfiniteTokens">
+      <div class="hack-emoji">💰</div>
+      <div class="hack-title">Infinite Tokens</div>
+      <div class="hack-desc">Lock 99,999 tokens</div>
+    </div>
+    <div class="hack-card" id="cardSpeedHack">
+      <div class="hack-emoji">⚡</div>
+      <div class="hack-title">2.5x Speed</div>
+      <div class="hack-desc">Faster timers</div>
+    </div>
+    <div class="hack-card" id="cardAutoFarm">
+      <div class="hack-emoji">🌾</div>
+      <div class="hack-title">Auto Farmer</div>
+      <div class="hack-desc">Auto collect chests</div>
+    </div>
+    <div class="hack-card" id="cardReveal">
+      <div class="hack-emoji">🔍</div>
+      <div class="hack-title">Reveal Answers</div>
+      <div class="hack-desc">Popup correct answer</div>
+    </div>
+    <div class="hack-card" id="cardAllHacks">
+      <div class="hack-emoji">🔥</div>
+      <div class="hack-title">ACTIVATE ALL</div>
+      <div class="hack-desc">Full hack suite + popup</div>
+    </div>
+    <div class="hack-card" id="cardReset">
+      <div class="hack-emoji">🔄</div>
+      <div class="hack-title">Reset Hacks</div>
+      <div class="hack-desc">Remove everything</div>
+    </div>
+  </div>
+
+  <div class="footer">
+    🎯 <strong>Why you'll see a popup:</strong> The bookmarklet injects a visible HTML panel with buttons and status indicators.<br>
+    If you don't see it, make sure you're on <strong>play.blooket.com</strong> inside a game lobby. Click bookmark again!
+  </div>
+</div>
+
+<script>
+  // ========== BUILD THE FLOATING POPUP HACK MENU (VISIBLE INTERFACE) ==========
+  // This is the core script that creates a visual popup on the Blooket page
+  
+  function getFloatingPopupMenuCode() {
+    return `
+// ============================================
+// BLOOKET HACK POPUP MENU - VISUAL INTERFACE
+// ============================================
+(function() {
+    // Avoid duplicate injection
+    if (window.__BLOOKET_HACK_PANEL_ACTIVE) {
+        // if panel already exists, just bring it to front
+        let existing = document.getElementById('blooket-hack-panel');
+        if (existing) {
+            existing.style.display = 'block';
+            existing.style.zIndex = '999999';
+            console.log("Popup already active, showing panel");
+        } else {
+            window.__BLOOKET_HACK_PANEL_ACTIVE = false;
+            delete window.__BLOOKET_HACK_PANEL_ACTIVE;
+        }
+        return;
+    }
+    window.__BLOOKET_HACK_PANEL_ACTIVE = true;
+    
+    // Create floating panel
+    const panel = document.createElement('div');
+    panel.id = 'blooket-hack-panel';
+    panel.innerHTML = \`
+        <div style="position:fixed; top:20px; right:20px; width:280px; background:linear-gradient(145deg,#0e1a2a,#07111f); border-radius:24px; border:2px solid #2affb0; box-shadow:0 10px 30px rgba(0,0,0,0.7), 0 0 15px rgba(42,255,176,0.3); z-index:999999; font-family:'Segoe UI',system-ui; backdrop-filter:blur(8px);">
+            <div style="background:#0a1428; padding:12px 16px; border-radius:22px 22px 0 0; display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid #2affb0; cursor:move;" id="hack-drag-handle">
+                <span style="font-weight:bold; color:#ccfff0;">🎮 BLOOKET HACKS</span>
+                <button id="close-hack-panel" style="background:#ff4466; border:none; color:white; border-radius:40px; width:26px; height:26px; cursor:pointer; font-weight:bold;">✕</button>
+            </div>
+            <div style="padding:16px;">
+                <div style="margin-bottom:12px;">
+                    <button id="hack-autoanswer-btn" style="width:100%; background:#1a2a3f; border:1px solid #3a6a8f; border-radius:40px; padding:8px; margin:4px 0; color:white; font-weight:bold; cursor:pointer;">✅ AUTO ANSWER (OFF)</button>
+                    <button id="hack-infinitetokens-btn" style="width:100%; background:#1a2a3f; border:1px solid #3a6a8f; border-radius:40px; padding:8px; margin:4px 0; color:white; font-weight:bold; cursor:pointer;">💰 INFINITE TOKENS (OFF)</button>
+                    <button id="hack-speedhack-btn" style="width:100%; background:#1a2a3f; border:1px solid #3a6a8f; border-radius:40px; padding:8px; margin:4px 0; color:white; font-weight:bold; cursor:pointer;">⚡ 2.5x SPEED (OFF)</button>
+                    <button id="hack-autofarm-btn" style="width:100%; background:#1a2a3f; border:1px solid #3a6a8f; border-radius:40px; padding:8px; margin:4px 0; color:white; font-weight:bold; cursor:pointer;">🌾 AUTO FARM (OFF)</button>
+                    <button id="hack-reveal-btn" style="width:100%; background:#1a2a3f; border:1px solid #3a6a8f; border-radius:40px; padding:8px; margin:4px 0; color:white; font-weight:bold; cursor:pointer;">🔍 REVEAL ANSWERS (OFF)</button>
+                </div>
+                <button id="hack-reset-all" style="width:100%; background:#4a2a3a; border:1px solid #ff8888; border-radius:40px; padding:8px; margin-top:8px; color:#ffcccc; font-weight:bold; cursor:pointer;">🔄 RESET ALL HACKS</button>
+                <div style="font-size:10px; text-align:center; color:#5f7f9f; margin-top:12px;">Draggable panel • click X to hide</div>
+            </div>
+        </div>
+    \`;
+    document.body.appendChild(panel);
+    
+    // Draggable logic
+    let dragHandle = document.getElementById('hack-drag-handle');
+    let isDragging = false, offsetX, offsetY;
+    dragHandle.addEventListener('mousedown', (e) => {
+        if(e.target.id !== 'close-hack-panel') {
+            isDragging = true;
+            offsetX = e.clientX - panel.offsetLeft;
+            offsetY = e.clientY - panel.offsetTop;
+            panel.style.position = 'fixed';
+            panel.style.margin = '0';
+            e.preventDefault();
+        }
+    });
+    document.addEventListener('mousemove', (e) => {
+        if(isDragging) {
+            panel.style.left = (e.clientX - offsetX) + 'px';
+            panel.style.top = (e.clientY - offsetY) + 'px';
+            panel.style.right = 'auto';
+        }
+    });
+    document.addEventListener('mouseup', () => { isDragging = false; });
+    
+    // Close button
+    document.getElementById('close-hack-panel').addEventListener('click', () => {
+        panel.style.display = 'none';
+    });
+    
+    // ========== HACK IMPLEMENTATIONS ==========
+    // Helper to update button text
+    function updateBtn(btnId, text, isActive) {
+        let btn = document.getElementById(btnId);
+        if(btn) {
+            btn.innerText = text + (isActive ? ' ✅' : ' ❌');
+            btn.style.background = isActive ? '#2a6b5c' : '#1a2a3f';
+        }
+    }
+    
+    // Auto Answer
+    let autoAnswerActive = false, answerInterval = null;
+    function startAutoAnswer() {
+        if(answerInterval) clearInterval(answerInterval);
+        answerInterval = setInterval(() => {
+            if(!autoAnswerActive) return;
+            let correct = null;
+            if(window.blooketGame && window.blooketGame.currentQuestion) correct = window.blooketGame.currentQuestion.correct;
+            if(!correct) {
+                let el = document.querySelector('[data-correct="true"], .correct-answer');
+                if(el) correct = el.innerText;
+            }
+            if(correct) {
+                let btns = Array.from(document.querySelectorAll('button, .answer-item, .quiz-option'));
+                for(let b of btns) {
+                    if(b.innerText.trim() === correct || b.innerText.includes(correct.substring(0,12))) {
+                        b.click(); break;
+                    }
+                }
+            } else {
+                let fallback = document.querySelector('.answer-item:not(.selected), .quiz-option:first-child');
+                if(fallback) fallback.click();
+            }
+        }, 400);
+    }
+    function stopAutoAnswer() { if(answerInterval) { clearInterval(answerInterval); answerInterval = null; } }
+    document.getElementById('hack-autoanswer-btn').addEventListener('click', () => {
+        autoAnswerActive = !autoAnswerActive;
+        if(autoAnswerActive) startAutoAnswer(); else stopAutoAnswer();
+        updateBtn('hack-autoanswer-btn', '✅ AUTO ANSWER', autoAnswerActive);
+    });
+    
+    // Infinite Tokens
+    let infTokensActive = false, tokenInterval = null;
+    function startInfiniteTokens() {
+        if(tokenInterval) clearInterval(tokenInterval);
+        if(window.blooketGame && !window.blooketGame.__origAddTokens) {
+            window.blooketGame.__origAddTokens = window.blooketGame.addTokens;
+            window.blooketGame.addTokens = function(amt) { return this.__origAddTokens.call(this, Math.max(amt, 9999)); };
+            window.blooketGame.tokens = 999999;
+        }
+        tokenInterval = setInterval(() => {
+            if(!infTokensActive) return;
+            let spans = document.querySelectorAll('[class*="token"], [class*="coin"], .balance');
+            spans.forEach(s => { if(s.innerText) s.innerText = "∞ 99,999"; });
+            if(window.blooketGame) window.blooketGame.tokens = 999999;
+            try{ localStorage.setItem('blooketTokens','999999'); } catch(e) {}
+        }, 500);
+    }
+    function stopInfiniteTokens() { if(tokenInterval) { clearInterval(tokenInterval); tokenInterval = null; } }
+    document.getElementById('hack-infinitetokens-btn').addEventListener('click', () => {
+        infTokensActive = !infTokensActive;
+        if(infTokensActive) startInfiniteTokens(); else stopInfiniteTokens();
+        updateBtn('hack-infinitetokens-btn', '💰 INFINITE TOKENS', infTokensActive);
+    });
+    
+    // Speed Hack
+    let speedActive = false;
+    function enableSpeedHack() {
+        if(window.__bk_speedActive) return;
+        window.__bk_speedActive = true;
+        const mult = 0.4;
+        if(!window.__nativeSetInt){
+            window.__nativeSetInt = window.setInterval;
+            window.__nativeSetTimeout = window.setTimeout;
+            window.setInterval = function(cb, interval, ...args){ return window.__nativeSetInt(cb, Math.max(1, interval*mult), ...args); };
+            window.setTimeout = function(cb, delay, ...args){ return window.__nativeSetTimeout(cb, delay*mult, ...args); };
+        }
+    }
+    function disableSpeedHack() {
+        if(window.__nativeSetInt) {
+            window.setInterval = window.__nativeSetInt;
+            window.setTimeout = window.__nativeSetTimeout;
+            window.__bk_speedActive = false;
+        }
+    }
+    document.getElementById('hack-speedhack-btn').addEventListener('click', () => {
+        speedActive = !speedActive;
+        if(speedActive) enableSpeedHack(); else disableSpeedHack();
+        updateBtn('hack-speedhack-btn', '⚡ 2.5x SPEED', speedActive);
+    });
+    
+    // Auto Farmer
+    let farmActive = false, farmInt = null;
+    function startFarm() {
+        if(farmInt) clearInterval(farmInt);
+        farmInt = setInterval(() => {
+            if(!farmActive) return;
+            document.querySelectorAll('[class*="blook"], [class*="chest"], [class*="token"], .clickable, .reward, .claim-btn').forEach(el => { if(el.offsetParent !== null) el.click(); });
+            Array.from(document.querySelectorAll('button')).filter(b => /collect|claim|earn|open/i.test(b.innerText)).forEach(b => b.click());
+        }, 130);
+    }
+    function stopFarm() { if(farmInt) { clearInterval(farmInt); farmInt = null; } }
+    document.getElementById('hack-autofarm-btn').addEventListener('click', () => {
+        farmActive = !farmActive;
+        if(farmActive) startFarm(); else stopFarm();
+        updateBtn('hack-autofarm-btn', '🌾 AUTO FARM', farmActive);
+    });
+    
+    // Reveal Answers (popup + console)
+    let revealActive = false, revealObserver = null;
+    function startReveal() {
+        if(revealObserver) revealObserver.disconnect();
+        function showAnswerPopup(ans) {
+            let notif = document.createElement('div');
+            notif.innerText = '🔮 CORRECT: ' + ans + ' 🔮';
+            notif.style.cssText = 'position:fixed; bottom:30px; left:20px; background:#0a1428; color:#ccffcc; padding:8px 18px; border-radius:30px; z-index:1000000; font-weight:bold; border-left:4px solid #2affb0; font-family:monospace; box-shadow:0 2px 10px black;';
+            document.body.appendChild(notif);
+            setTimeout(() => notif.remove(), 4000);
+        }
+        function extractAndNotify() {
+            let ans = null;
+            if(window.blooketGame && window.blooketGame.currentQuestion) ans = window.blooketGame.currentQuestion.correct;
+            if(!ans) {
+                let el = document.querySelector('[data-correct="true"]');
+                if(el) ans = el.innerText;
+            }
+            if(ans) showAnswerPopup(ans);
+        }
+        revealObserver = new MutationObserver(() => {
+            if(document.querySelector('.question-text, .question')) extractAndNotify();
+        });
+        revealObserver.observe(document.body, { childList: true, subtree: true });
+        extractAndNotify();
+    }
+    function stopReveal() { if(revealObserver) { revealObserver.disconnect(); revealObserver = null; } }
+    document.getElementById('hack-reveal-btn').addEventListener('click', () => {
+        revealActive = !revealActive;
+        if(revealActive) startReveal(); else stopReveal();
+        updateBtn('hack-reveal-btn', '🔍 REVEAL ANSWERS', revealActive);
+    });
+    
+    // Reset All Hacks
+    document.getElementById('hack-reset-all').addEventListener('click', () => {
+        // stop all
+        if(autoAnswerActive) { autoAnswerActive = false; stopAutoAnswer(); updateBtn('hack-autoanswer-btn', '✅ AUTO ANSWER', false); }
+        if(infTokensActive) { infTokensActive = false; stopInfiniteTokens(); updateBtn('hack-infinitetokens-btn', '💰 INFINITE TOKENS', false); }
+        if(speedActive) { speedActive = false; hedisableSpeedHack(); updateBtn('hack-speedhack-btn', '⚡ 2.5x SPEED', false); }
+        if(farmActive) { farmActive = false; stopFarm(); updateBtn('hack-autofarm-btn', '🌾 AUTO FARM', false); }
+        if(revealActive) { revealActive = false; stopReveal(); updat
