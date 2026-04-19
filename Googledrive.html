@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>Blooket Enhancer Panel • Offline Version</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      user-select: none;
+    }
+
+    body {
+      background: linear-gradient(145deg, #0a0f1e 0%, #0c1222 100%);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, 'Poppins', sans-serif;
+      padding: 20px;
+    }
+
+    .hack-container {
+      max-width: 750px;
+      width: 100%;
+      background: rgba(18, 25, 45, 0.85);
+      backdrop-filter: blur(12px);
+      border-radius: 48px;
+      border: 1px solid rgba(72, 187, 255, 0.3);
+      box-shadow: 0 25px 45px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(0, 255, 255, 0.1) inset;
+      overflow: hidden;
+    }
+
+    .header {
+      background: rgba(0, 10, 25, 0.6);
+      padding: 1.4rem 2rem;
+      border-bottom: 1px solid #2dffb0;
+      text-align: center;
+    }
+
+    .header h1 {
+      font-size: 1.9rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, #A3FFE6, #4d9eff);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      letter-spacing: -0.3px;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .badge {
+      background: #1f2a3e;
+      border-radius: 40px;
+      padding: 4px 12px;
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: #7df9ff;
+      border: 1px solid #2affb6;
+    }
+
+    .sub {
+      color: #8e9bb5;
+      margin-top: 8px;
+      font-size: 0.8rem;
+    }
+
+    .cards-grid {
+      padding: 1.8rem 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+
+    .hack-card {
+      background: rgba(12, 20, 35, 0.7);
+      border-radius: 28px;
+      border-left: 4px solid;
+      transition: 0.2s;
+      backdrop-filter: blur(4px);
+      padding: 0.2rem 0;
+    }
+
+    .card-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 1.5rem;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .info h3 {
+      font-size: 1.35rem;
+      font-weight: 600;
+      color: #f0f3ff;
+      letter-spacing: -0.2px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .info p {
+      font-size: 0.8rem;
+      color: #9aa9c1;
+      margin-top: 6px;
+    }
+
+    .toggle-switch {
+      position: relative;
+      width: 52px;
+      height: 26px;
+      background: #2c3548;
+      border-radius: 40px;
+      cursor: pointer;
+      transition: 0.2s;
+      box-shadow: inset 0 1px 3px rgba(0,0,0,0.4);
+    }
+
+    .toggle-switch.active {
+      background: #1b8c5e;
+      box-shadow: 0 0 8px #2affb0;
+    }
+
+    .toggle-knob {
+      position: absolute;
+      width: 22px;
+      height: 22px;
+      background: white;
+      border-radius: 50%;
+      top: 2px;
+      left: 3px;
+      transition: 0.2s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+    }
+
+    .toggle-switch.active .toggle-knob {
+      left: 27px;
+      background: #eef5ff;
+    }
+
+    .action-btn {
+      background: #1e2b3c;
+      border: none;
+      color: #ccdeff;
+      font-weight: 600;
+      padding: 8px 18px;
+      border-radius: 60px;
+      font-size: 0.85rem;
+      cursor: pointer;
+      transition: all 0.2s;
+      font-family: monospace;
+      letter-spacing: 0.3px;
+    }
+
+    .action-btn.primary {
+      background: #1e6f5c;
+      color: white;
+      box-shadow: 0 1px 4px rgba(0,255,170,0.3);
+    }
+
+    .action-btn.danger {
+      background: #7a2e4a;
+      color: #ffc2d1;
+    }
+
+    .action-btn.warning {
+      background: #b66f1a;
+      color: #fff0cc;
+    }
+
+    .action-btn:hover {
+      transform: scale(0.96);
+      filter: brightness(1.1);
+    }
+
+    .chromebook-fix {
+      background: #1a2a3f;
+      margin: 0 2rem 1rem 2rem;
+      border-radius: 24px;
+      padding: 14px 20px;
+      border-left: 4px solid #ffb347;
+      font-size: 0.8rem;
+    }
+
+    .chromebook-fix p {
+      color: #ffecb3;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .copy-btn {
+      background: #2c3e50;
+      border: none;
+      color: white;
+      padding: 6px 12px;
+      border-radius: 40px;
+      font-size: 0.7rem;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .warning-note {
+      background: rgba(0,0,0,0.5);
+      margin: 0 2rem 1.8rem 2rem;
+      border-radius: 20px;
+      padding: 12px 20px;
+      font-size: 0.75rem;
+      color: #b0c4de;
+      border: 1px dashed #4aa0ff;
+      text-align: center;
+    }
+
+    .footer {
+      padding: 0.8rem 2rem 1.4rem;
+      text-align: center;
+      font-size: 0.7rem;
+      color: #5f7592;
+      border-top: 1px solid rgba(72,187,255,0.2);
+    }
+
+    .toast {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #1e2a36;
+      color: #bbffdd;
+      padding: 10px 20px;
+      border-radius: 40px;
+      font-size: 0.8rem;
+      z-index: 9999;
+      border: 1px solid #2affb0;
+      pointer-events: none;
+      transition: 0.2s;
+      font-family: monospace;
+    }
+  </style>
+</head>
+<body>
+<div class="hack-container">
+  <div class="header">
+    <h1>🎮 BLOOKET <span style="font-size:1.2rem;">⚡</span> ENHANCER <span class="badge">Chromebook Edition</span></h1>
+    <div class="sub">✅ Works on school Chromebooks • No external scripts • Copy & paste method</div>
+  </div>
+
+  <!-- CHROMEBOOK FIX SECTION -->
+  <div class="chromebook-fix">
+    <p>🔧 <strong>Chromebook / School Fix:</strong> If you can't see/use the panel inside Blooket tab → 
+    <button class="copy-btn" id="copyConsoleCodeBtn">📋 Copy Console Code</button> 
+    <span style="font-size:0.7rem;">(paste into DevTools console on blooket.com/play)</span>
+    </p>
+    <p style="margin-top: 8px; font-size:0.7rem;">💡 Or use this panel as a standalone launcher: toggles will auto-inject into Blooket tab via console commands.</p>
+  </div>
+
+  <div class="cards-grid">
+    <!-- Instant correct answer -->
+    <div class="hack-card" style="border-left-color: #2affb0;">
+      <div class="card-content">
+        <div class="info">
+          <h3>✅ INSTANT CORRECT</h3>
+          <p>Auto-selects right answer each question</p>
+        </div>
+        <div class="toggle-switch" id="autoAnswerToggle">
+          <div class="toggle-knob"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Infinite Tokens -->
+    <div class="hack-card" style="border-left-color: #ffcf4a;">
+      <div class="card-content">
+        <div class="info">
+          <h3>💰 INFINITE TOKENS</h3>
+          <p>Lock tokens at 99,999 & prevent spending</p>
+        </div>
+        <div class="toggle-switch" id="infiniteTokensToggle">
+          <div class="toggle-knob"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Speed Hack -->
+    <div class="hack-card" style="border-left-color: #ff7675;">
+      <div class="card-content">
+        <div class="info">
+          <h3>⚡ SPEED HACK (2.5x)</h3>
+          <p>Boost game timers & animations</p>
+        </div>
+        <button class="action-btn primary" id="speedHackBtn">⚡ ACTIVATE 2.5x</button>
+      </div>
+    </div>
+
+    <!-- Auto Farmer -->
+    <div class="hack-card" style="border-left-color: #a55eff;">
+      <div class="card-content">
+        <div class="info">
+          <h3>🌾 AUTO FARMER</h3>
+          <p>Clicks chests/blooks/tokens rapidly</p>
+        </div>
+        <div class="toggle-switch" id="autoFarmToggle">
+          <div class="toggle-knob"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Reveal Answers -->
+    <div class="hack-card" style="border-left-color: #f78fb3;">
+      <div class="card-content">
+        <div class="info">
+          <h3>🔍 REVEAL ANSWERS</h3>
+          <p>Shows correct answer popup & console log</p>
+        </div>
+        <button class="action-btn primary" id="revealAnswersBtn">📡 REVEAL & NOTIFY</button>
+      </div>
+    </div>
+
+    <!-- One-Click Inject All (Chromebook friendly) -->
+    <div class="hack-card" style="border-left-color: #48dbfb;">
+      <div class="card-content">
+        <div class="info">
+          <h3>📦 INJECT ALL HACKS</h3>
+          <p>Generate master script for Blooket console</p>
+        </div>
+        <button class="action-btn warning" id="generateAllScriptBtn">📋 GET MASTER SCRIPT</button>
+      </div>
+    </div>
+
+    <!-- Reset -->
+    <div class="hack-card" style="border-left-color: #778beb;">
+      <div class="card-content">
+        <div class="info">
+          <h3>🔄 RESET ALL</h3>
+          <p>Remove hacks & restore normal behavior</p>
+        </div>
+        <button class="action-btn danger" id="resetAllBtn">⚠️ RESET & CLEAN</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="warning-note">
+    🧠 <strong>Chromebook workaround:</strong> If toggles don't affect your game → click "Copy Console Code" or "Get Master Script", then open Blooket game, press Ctrl+Shift+J (or Ctrl+Shift+I → Console), paste & Enter. Works on managed devices!
+  </div>
+  <div class="footer">
+    💡 No extensions needed — pure JavaScript. For best results: join a game first, then activate hacks.
+  </div>
+</div>
+
+<script>
+  // ------------------- UTILITIES -------------------
+  function showToast(msg, duration = 2000) {
+    let toast = document.createElement('div');
+    toast.className = 'toast';
+    toast.innerText = msg;
+    document.body.appendChild(toast);
+    setTimeout(() => toast.remove(), duration);
+  }
+
+  // Store active states for UI
+  let hackStates = {
+    autoAnswer: false,
+    infiniteTokens: false,
+    autoFarm: false,
+    speedActive: false
+  };
+
+  // These will hold intervals/overrides for the local UI control (optional direct injection)
+  // But for Chromebook, the main method is generating script to paste.
+  
+  // Helper: generate console script for a specific hack
+  function generateAutoAnswerScript() {
+    return `
+// ===== BLOOKET AUTO ANSWER (INSTANT CORRECT) =====
+(function() {
+    if (window.__autoAnswerActive) { console.log("Auto-Answer already running"); return; }
+    window.__autoAnswerActive = true;
+    function findAndClickCorrect() {
+        let correctText = null;
+        // try to grab from game data
+        if (window.blooketGame && window.blooketGame.currentQuestion) {
+            correctText = window.blooketGame.currentQuestion.correct;
+        }
+        if (!correctText) {
+            let correctElem = document.querySelector('[data-correct="true"], .correct-answer');
+            if (correctElem) correctText = correctElem.innerText;
+        }
+        if (correctText) {
+            let allBtns = Array.from(document.querySelectorAll('button, .answer-item, .quiz-option, [role="button"]'));
+            for (let btn of allBtns) {
+                if (btn.innerText.trim() === correctText || btn.innerText.includes(correctText.substring(0,15))) {
+                    btn.click();
+                    console.log("[AutoAnswer] ✔️ clicked: " + correctText);
+                    return;
+                }
+            }
+        }
+        // fallback: click first non-selected answer
+        let firstAnswer = document.querySelector('.answer-item:not(.selected), .quiz-option:not(.selected)');
+        if(firstAnswer) firstAnswer.click();
+    }
+    setInterval(() => {
+        if(document.querySelector('.question-text, .question')) findAndClickCorrect();
+    }, 400);
+    console.log("%c✅ Auto-Answer ENABLED (instant correct)", "color: #2affb0; font-size:12px");
+})();
+`;
+  }
+
+  function generateInfiniteTokensScript() {
+    return `
+// ===== INFINITE TOKENS / COINS =====
+(function() {
+    if (window.__infTokensActive) return;
+    window.__infTokensActive = true;
+    // override addTokens method
+    if (window.blooketGame && !window.blooketGame.__addTokensOriginal) {
+        window.blooketGame.__addTokensOriginal = window.blooketGame.addTokens;
+        window.blooketGame.addTokens = function(amount) {
+            return this.__addTokensOriginal.call(this, Math.max(amount, 9999));
+        };
+        window.blooketGame.tokens = 999999;
+    }
+    // constantly update token display
+    setInterval(() => {
+        let tokenSpans = document.querySelectorAll('[class*="token"], [class*="coin"], .balance');
+        tokenSpans.forEach(el => { if (el.innerText) el.innerText = "∞ 99,999"; });
+        if (window.blooketGame) window.blooketGame.tokens = 999999;
+        try { localStorage.setItem('blooketTokens', '999999'); } catch(e) {}
+    }, 500);
+    console.log("%c💰 INFINITE TOKENS ACTIVATED", "color: gold; font-size:12px");
+})();
+`;
+  }
+
+  function generateSpeedHackScript() {
+    return `
+// ===== SPEED HACK 2.5x (timers) =====
+(function() {
+    if (window.__blooketSpeedActive) return;
+    window.__blooketSpeedActive = true;
+    const multiplier = 0.4;
+    if (!window.__nativeSetInterval) {
+        window.__nativeSetInterval = window.setInterval;
+        window.__nativeSetTimeout = window.setTimeout;
+        window.setInterval = function(cb, interval, ...args) {
+            let newInt = Math.max(1, interval * multiplier);
+            return window.__nativeSetInterval(cb, newInt, ...args);
+        };
+        window.setTimeout = function(cb, delay, ...args) {
+            let newDelay = delay * multiplier;
+            return window.__nativeSetTimeout(cb, newDelay, ...args);
+        };
+    }
+    console.log("%c⚡ SPEED HACK 2.5x ACTIVE (timers accelerated)", "color: #ff9f4a");
+})();
+`;
+  }
+
+  function generateAutoFarmScript() {
+    return `
+// ===== AUTO FARMER (rapid collect) =====
+(function() {
+    if (window.__autoFarmInterval) clearInterval(window.__autoFarmInterval);
+    window.__autoFarmInterval = setInterval(() => {
+        let targets = document.querySelectorAll('[class*="blook"], [class*="chest"], [class*="token"], .clickable, .reward, .claim-btn, button:has(> svg)');
+        targets.forEach(t => { if(t.offsetParent !== null) t.click(); });
+        let buttons = Array.from(document.querySelectorAll('button')).filter(b => /collect|claim|earn|open/i.test(b.innerText));
+        buttons.forEach(b => b.click());
+    }, 130);
+    console.log("%c🌾 AUTO FARMER ACTIVE (collecting every 130ms)", "color: #b794f4");
+})();
+`;
+  }
+
+  function generateRevealAnswersScript() {
+    return `
+// ===== REVEAL ANSWERS + POPUP =====
+(function() {
+    function showAnswerPopup(answer) {
+        let div = document.createElement('div');
+        div.innerText = '✨ CORRECT: ' + answer + ' ✨';
+        div.style.cssText = 'position:fixed; bottom:20px; right:20px; background:#0f212e; color:#ccffcc; padding:8px 18px; border-radius:40px; z-index:99999; font-weight:bold; border-left:4px solid #2affb0; font-family:monospace;';
+        document.body.appendChild(div);
+        setTimeout(() => div.remove(), 3500);
+        console.log("%c🔍 Correct answer: " + answer, "background:#005500; color:white");
+    }
+    function getCorrect() {
+        let ans = null;
+        if(window.blooketGame && window.blooketGame.currentQuestion) ans = window.blooketGame.currentQuestion.correct;
+        if(!ans) {
+            let el = document.querySelector('[data-correct="true"]');
+            if(el) ans = el.innerText;
+        }
+        if(ans) showAnswerPopup(ans);
+        else console.log("[Reveal] Could not detect answer yet, try after question loads");
+    }
+    const observer = new MutationObserver(() => {
+        if(document.querySelector('.question-text, .question')) getCorrect();
+    });
+    observer.observe(document.body, {childList:true, subtree:true});
+    getCorrect();
+    console.log("%c🔎 Answer revealer ACTIVE", "color:cyan");
+})();
+`;
+  }
+
+  function generateFullMasterScript() {
+    return `// =============================================
+// 🔥 BLOOKET MASTER HACK SUITE (Chromebook Friendly)
+// =============================================
+// Paste this entire script into console (Ctrl+Shift+J) on blooket.com/play while in a game
+// All hacks will activate instantly.
+${generateAutoAnswerScript()}
+${generateInfiniteTokensScript()}
+${generateSpeedHackScript()}
+${generateAutoFarmScript()}
+${generateRevealAnswersScript()}
+console.log("%c🎮 ALL BLOOKET HACKS ACTIVATED — enjoy!", "color: #2affb0; font-size: 16px; font-weight: bold");
+`;
+  }
+
+  function generateResetScript() {
+    return `
+// ===== RESET ALL BLOOKET HACKS =====
+(function() {
+    if (window.__autoAnswerActive) window.__autoAnswerActive = false;
+    if (window.__infTokensActive) window.__infTokensActive = false;
+    if (window.__blooketSpeedActive) {
+        if(window.__nativeSetInterval) {
+            window.setInterval = window.__nativeSetInterval;
+            window.setTimeout = window.__nativeSetTimeout;
+        }
+        window.__blooketSpeedActive = false;
+    }
+    if (window.__autoFarmInterval) { clearInterval(window.__autoFarmInterval); delete window.__autoFarmInterval; }
+    if (window.blooketGame && window.blooketGame.__addTokensOriginal) {
+        window.blooketGame.addTokens = window.blooketGame.__addTokensOriginal;
+        delete window.blooketGame.__addTokensOriginal;
+    }
+    console.log("%c🧹 All hacks have been reset. Page refresh recommended for full restore.", "color:#ffaa66");
+    alert("Hacks reset! Some changes may require page reload.");
+})();
+`;
+  }
+
+  // Copy to clipboard helper (for Chromebook)
+  async function copyToClipboard(text, successMsg) {
+    try {
+      await navigator.clipboard.writeText(text);
+      showToast(successMsg || "✅ Copied to clipboard! Now paste into Blooket console (Ctrl+Shift+J)");
+    } catch (err) {
+      // Fallback for older chromebooks
+      let textarea = document.createElement('textarea');
+      textarea.value = text;
+      document.body.appendChild(textarea);
+      textarea.select();
+      document.execCommand('copy');
+      document.body.removeChild(textarea);
+      showToast(successMsg || "📋 Copied! Paste into console.");
+    }
+  }
+
+  // UI Toggle handlers - they copy specific script to console clipboard
+  document.getElementById('autoAnswerToggle').addEventListener('click', () => {
+    const toggle = document.getElementById('autoAnswerToggle');
+    if (!hackStates.autoAnswer) {
+      copyToClipboard(generateAutoAnswerScript(), "✅ Auto-Answer script copied! Paste into Blooket console (Ctrl+Shift+J)");
+      toggle.classList.add('active');
+      hackStates.autoAnswer = true;
+      showToast("📋 Auto-Answer script ready! Go to Blooket tab → Console → paste & Enter", 3000);
+    } else {
+      // deactivate: just show reset hint
+      copyToClipboard(`
+// To disable Auto-Answer, run: 
+window.__autoAnswerActive = false;
+console.log("Auto-Answer disabled");
+`, "Deactivation snippet copied. Paste in console to turn off.");
+      toggle.classList.remove('active');
+      hackStates.autoAnswer = false;
+    }
+  });
+
+  document.getElementById('infiniteTokensToggle').addEventListener('click', () => {
+    const toggle = document.getElementById('infiniteTokensToggle');
+    if (!hackStates.infiniteTokens) {
+      copyToClipboard(generateInfiniteTokensScript(), "💰 Infinite Tokens script copied! Paste into Blooket console.");
+      toggle.classList.add('active');
+      hackStates.infiniteTokens = true;
+    } else {
+      copyToClipboard(`// Disable infinite tokens:
+if(window.blooketGame && window.blooketGame.__addTokensOriginal) {
+  window.blooketGame.addTokens = window.blooketGame.__addTokensOriginal;
+  delete window.blooketGame.__addTokensOriginal;
+}
+window.__infTokensActive = false;
+console.log("Infinite tokens OFF");
+`, "Disable script copied. Paste into console to turn off.");
+      toggle.classList.remove('active');
+      hackStates.infiniteTokens = false;
+    }
+  });
+
+  document.getElementById('autoFarmToggle').addEventListener('click', () => {
+    const toggle = document.getElementById('autoFarmToggle');
+    if (!hackStates.autoFarm) {
+      copyToClipboard(generateAutoFarmScript(), "🌾 Auto-Farmer copied! Paste into Blooket console.");
+ 
