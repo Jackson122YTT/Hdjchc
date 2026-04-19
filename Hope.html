@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>Blooket Hack Injector • No Console Needed</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: linear-gradient(135deg, #0a0f1e 0%, #0c1222 100%);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+      padding: 20px;
+    }
+
+    .main-card {
+      max-width: 850px;
+      width: 100%;
+      background: rgba(10, 20, 35, 0.92);
+      backdrop-filter: blur(10px);
+      border-radius: 48px;
+      border: 1px solid rgba(0, 255, 200, 0.4);
+      box-shadow: 0 25px 45px rgba(0, 0, 0, 0.6), 0 0 20px rgba(0, 255, 200, 0.1);
+      overflow: hidden;
+    }
+
+    .header {
+      background: linear-gradient(135deg, #0a1428, #0a0f1e);
+      padding: 1.8rem 2rem;
+      text-align: center;
+      border-bottom: 2px solid #2affb0;
+    }
+
+    .header h1 {
+      font-size: 2rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, #A3FFE6, #4d9eff);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      letter-spacing: -0.5px;
+    }
+
+    .badge {
+      background: #1f2a3e;
+      border-radius: 40px;
+      padding: 4px 14px;
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: #7df9ff;
+      display: inline-block;
+      margin-top: 10px;
+      border: 1px solid #2affb0;
+    }
+
+    .sub {
+      color: #9aaec5;
+      margin-top: 10px;
+      font-size: 0.85rem;
+    }
+
+    .warning-banner {
+      background: #ff980030;
+      border-left: 4px solid #ff9800;
+      margin: 1.5rem 2rem 0.5rem 2rem;
+      padding: 12px 18px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      color: #ffd966;
+    }
+
+    .bookmarklet-section {
+      background: #0c1428;
+      margin: 1.5rem 2rem;
+      border-radius: 32px;
+      padding: 1.5rem;
+      border: 1px solid #2a3a55;
+      text-align: center;
+    }
+
+    .bookmarklet-title {
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: #bbf0ff;
+      margin-bottom: 12px;
+    }
+
+    .bookmarklet-code {
+      background: #000000aa;
+      padding: 16px;
+      border-radius: 20px;
+      font-family: 'Courier New', monospace;
+      font-size: 0.7rem;
+      word-break: break-all;
+      color: #b3ffcf;
+      border: 1px solid #2affb0;
+      margin: 15px 0;
+      max-height: 120px;
+      overflow-y: auto;
+    }
+
+    .drag-btn {
+      background: linear-gradient(135deg, #1e6f5c, #0f4c3f);
+      border: none;
+      color: white;
+      font-weight: bold;
+      padding: 12px 24px;
+      border-radius: 60px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: 0.2s;
+      margin: 8px 0;
+      width: 100%;
+      font-family: monospace;
+    }
+
+    .drag-btn:hover {
+      transform: scale(0.98);
+      box-shadow: 0 0 12px #2affb0;
+    }
+
+    .hack-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1rem;
+      margin: 1.5rem 2rem;
+    }
+
+    .hack-btn {
+      background: #111c2c;
+      border: 1px solid #2d4a6e;
+      border-radius: 28px;
+      padding: 14px 12px;
+      cursor: pointer;
+      transition: 0.15s;
+      text-align: center;
+    }
+
+    .hack-btn:hover {
+      background: #1a2c44;
+      border-color: #2affb0;
+      transform: translateY(-2px);
+    }
+
+    .hack-emoji {
+      font-size: 1.6rem;
+      display: block;
+    }
+
+    .hack-name {
+      font-weight: 700;
+      color: #eef5ff;
+      margin: 8px 0 4px;
+    }
+
+    .hack-desc {
+      font-size: 0.7rem;
+      color: #8dabcf;
+    }
+
+    .status-badge {
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      border-radius: 10px;
+      background: #555;
+      margin-left: 8px;
+    }
+
+    .footer {
+      padding: 1rem 2rem 1.5rem;
+      text-align: center;
+      font-size: 0.7rem;
+      color: #5f7592;
+      border-top: 1px solid #1e3347;
+    }
+
+    .inline-code {
+      background: #00000066;
+      padding: 2px 8px;
+      border-radius: 12px;
+      font-family: monospace;
+      font-size: 0.7rem;
+    }
+
+    @keyframes pulse {
+      0% { opacity: 0.7; }
+      100% { opacity: 1; text-shadow: 0 0 4px cyan; }
+    }
+  </style>
+</head>
+<body>
+<div class="main-card">
+  <div class="header">
+    <h1>🎮 BLOOKET HACK INJECTOR</h1>
+    <div class="badge">🔓 NO CONSOLE NEEDED • BOOKMARKLET METHOD</div>
+    <div class="sub">Works on school Chromebooks • Drag & drop to bookmarks bar</div>
+  </div>
+
+  <div class="warning-banner">
+    ⚠️ <strong>Chromebook / No Console Fix:</strong> You CANNOT open DevTools? No problem! Use the <strong>Bookmarklet</strong> below. 
+    Drag the button to your bookmarks bar, then click it while on Blooket game page → hacks work instantly!
+  </div>
+
+  <!-- BOOKMARKLET SECTION - MAIN FIX -->
+  <div class="bookmarklet-section">
+    <div class="bookmarklet-title">🚀 ONE-CLICK HACK MENU (Bookmarklet)</div>
+    <p style="color:#bbd4ff; font-size:0.8rem; margin-bottom:12px;">✨ Drag this button to your bookmarks bar, then click it on <strong>blooket.com/play</strong></p>
+    <div id="bookmarkletContainer" style="margin: 5px 0;">
+      <a id="bookmarkletLink" style="text-decoration: none;" href="#">
+        <div class="drag-btn" id="dragHandle">📌 DRAG ME TO BOOKMARKS BAR</div>
+      </a>
+    </div>
+    <div class="bookmarklet-code" id="bookmarkletCodeDisplay">
+      (javascript: (function() { /* hack code will appear here */ })());
+    </div>
+    <p style="font-size:0.7rem; margin-top:12px;">💡 <strong>How to use:</strong> 1. Drag the green button above to your bookmarks bar. 2. Go to Blooket and join a game. 3. Click the bookmark → floating hack menu appears!</p>
+  </div>
+
+  <!-- Quick hack shortcuts (generate individual bookmarklets) -->
+  <div style="margin: 0 2rem 1rem 2rem;">
+    <div style="display: flex; justify-content: space-between; align-items: baseline;">
+      <h3 style="color:#bbf0ff; font-size:1rem;">⚡ Quick Inject (individual hacks as bookmarklets)</h3>
+      <span style="font-size:0.65rem; color:#6c8db0;">drag each to bookmarks bar</span>
+    </div>
+  </div>
+
+  <div class="hack-grid">
+    <div class="hack-btn" id="quickAutoAnswer">
+      <span class="hack-emoji">✅</span>
+      <div class="hack-name">Instant Correct</div>
+      <div class="hack-desc">Auto-select right answer</div>
+    </div>
+    <div class="hack-btn" id="quickInfiniteTokens">
+      <span class="hack-emoji">💰</span>
+      <div class="hack-name">Infinite Tokens</div>
+      <div class="hack-desc">Lock tokens at 99,999</div>
+    </div>
+    <div class="hack-btn" id="quickSpeedHack">
+      <span class="hack-emoji">⚡</span>
+      <div class="hack-name">2.5x Speed</div>
+      <div class="hack-desc">Faster timers</div>
+    </div>
+    <div class="hack-btn" id="quickAutoFarmer">
+      <span class="hack-emoji">🌾</span>
+      <div class="hack-name">Auto Farmer</div>
+      <div class="hack-desc">Auto-collect chests/blooks</div>
+    </div>
+    <div class="hack-btn" id="quickRevealAnswers">
+      <span class="hack-emoji">🔍</span>
+      <div class="hack-name">Reveal Answers</div>
+      <div class="hack-desc">Popup + console log</div>
+    </div>
+    <div class="hack-btn" id="quickAllHacks">
+      <span class="hack-emoji">🔥</span>
+      <div class="hack-name">ACTIVATE ALL</div>
+      <div class="hack-desc">One click = all hacks</div>
+    </div>
+    <div class="hack-btn" id="quickReset">
+      <span class="hack-emoji">🔄</span>
+      <div class="hack-name">Reset All Hacks</div>
+      <div class="hack-desc">Clean everything</div>
+    </div>
+  </div>
+
+  <div class="footer">
+    💡 <strong>How this bypasses console restrictions:</strong> Bookmarklets run as regular JavaScript in the page context. School Chromebooks cannot block bookmarklets!<br>
+    📌 Just drag any button above to your bookmarks bar → click while playing Blooket.
+  </div>
+</div>
+
+<script>
+  // ======================== HACK CODE GENERATORS ========================
+  
+  // 1. Auto Answer (Instant Correct)
+  function getAutoAnswerCode() {
+    return `
+(function(){
+    if(window.__bk_autoAnswer) return;
+    window.__bk_autoAnswer = true;
+    function clickCorrect(){
+        let correct = null;
+        if(window.blooketGame && window.blooketGame.currentQuestion) correct = window.blooketGame.currentQuestion.correct;
+        if(!correct){
+            let el = document.querySelector('[data-correct="true"], .correct-answer');
+            if(el) correct = el.innerText;
+        }
+        if(correct){
+            let btns = Array.from(document.querySelectorAll('button, .answer-item, .quiz-option'));
+            for(let b of btns){
+                if(b.innerText.trim() === correct || b.innerText.includes(correct.substring(0,12))){
+                    b.click(); console.log("[Blooket] ✅ Correct answer: "+correct); return;
+                }
+            }
+        }
+        let fallback = document.querySelector('.answer-item:not(.selected), .quiz-option:first-child');
+        if(fallback) fallback.click();
+    }
+    setInterval(() => { if(document.querySelector('.question-text, .question')) clickCorrect(); }, 380);
+    console.log("%c✅ Auto-Answer ACTIVE", "color:#2affb0");
+})();
+`;
+  }
+
+  // 2. Infinite Tokens
+  function getInfiniteTokensCode() {
+    return `
+(function(){
+    if(window.__bk_infTokens) return;
+    window.__bk_infTokens = true;
+    if(window.blooketGame && !window.blooketGame.__origAddTokens){
+        window.blooketGame.__origAddTokens = window.blooketGame.addTokens;
+        window.blooketGame.addTokens = function(amt){ return this.__origAddTokens.call(this, Math.max(amt, 9999)); };
+        window.blooketGame.tokens = 999999;
+    }
+    setInterval(() => {
+        let spans = document.querySelectorAll('[class*="token"], [class*="coin"], .balance');
+        spans.forEach(s => { if(s.innerText) s.innerText = "∞ 99,999"; });
+        if(window.blooketGame) window.blooketGame.tokens = 999999;
+        try{ localStorage.setItem('blooketTokens','999999'); }catch(e){}
+    }, 400);
+    console.log("%c💰 INFINITE TOKENS ACTIVE", "color:gold");
+})();
+`;
+  }
+
+  // 3. Speed Hack
+  function getSpeedHackCode() {
+    return `
+(function(){
+    if(window.__bk_speedActive) return;
+    window.__bk_speedActive = true;
+    const mult = 0.4;
+    if(!window.__nativeSetInt){
+        window.__nativeSetInt = window.setInterval;
+        window.__nativeSetTimeout = window.setTimeout;
+        window.setInterval = function(cb, interval, ...args){ return window.__nativeSetInt(cb, Math.max(1, interval*mult), ...args); };
+        window.setTimeout = function(cb, delay, ...args){ return window.__nativeSetTimeout(cb, delay*mult, ...args); };
+    }
+    console.log("%c⚡ SPEED HACK 2.5x ACTIVE", "color:#ffaa66");
+})();
+`;
+  }
+
+  // 4. Auto Farmer
+  function getAutoFarmerCode() {
+    return `
+(function(){
+    if(window.__bk_farmInt) clearInterval(window.__bk_farmInt);
+    window.__bk_farmInt = setInterval(() => {
+        document.querySelectorAll('[class*="blook"], [class*="chest"], [class*="token"], .clickable, .reward, .claim-btn').forEach(el => { if(el.offsetParent !== null) el.click(); });
+        Array.from(document.querySelectorAll('button')).filter(b => /collect|claim|earn|open/i.test(b.innerText)).forEach(b => b.click());
+    }, 120);
+    console.log("%c🌾 AUTO FARMER ACTIVE", "color:#b794f4");
+})();
+`;
+  }
+
+  // 5. Reveal Answers
+  function getRevealAnswersCode() {
+    return `
+(function(){
+    function showAns(ans){
+        let div = document.createElement('div');
+        div.innerText = '🔮 ANSWER: ' + ans + ' 🔮';
+        div.style.cssText = 'position:fixed; bottom:20px; right:20px; background:#0a1428; color:#bbffcc; padding:8px 18px; border-radius:30px; z-index:999999; font-weight:bold; border-left:4px solid #2affb0; font-family:monospace; box-shadow:0 0 10px black;';
+        document.body.appendChild(div);
+        setTimeout(()=>div.remove(),3500);
+        console.log("%c[Reveal] Correct: "+ans, "color:#aaffdd");
+    }
+    function getCorrect(){
+        let ans = null;
+        if(window.blooketGame && window.blooketGame.currentQuestion) ans = window.blooketGame.currentQuestion.correct;
+        if(!ans){
+            let e = document.querySelector('[data-correct="true"]');
+            if(e) ans = e.innerText;
+        }
+        if(ans) showAns(ans);
+        else console.log("[Reveal] waiting for question...");
+    }
+    const obs = new MutationObserver(()=>{ if(document.querySelector('.question-text, .question')) getCorrect(); });
+    obs.observe(document.body, {childList:true, subtree:true});
+    getCorrect();
+    console.log("%c🔍 Answer Revealer ACTIVE", "color:cyan");
+})();
+`;
+  }
+
+  // 6. Reset All Hacks
+  function getResetCode() {
+    return `
+(function(){
+    if(window.__bk_autoAnswer) window.__bk_autoAnswer = false;
+    if(window.__bk_infTokens) window.__bk_infTokens = false;
+    if(window.__bk_speedActive){
+        if(window.__nativeSetInt){
+            window.setInterval = window.__nativeSetInt;
+            window.setTimeout = window.__nativeSetTimeout;
+        }
+        window.__bk_speedActive = false;
+    }
+    if(window.__bk_farmInt){ clearInterval(window.__bk_farmInt); delete window.__bk_farmInt; }
+    if(window.blooketGame && window.blooketGame.__origAddTokens){
+        window.blooketGame.addTokens = window.blooketGame.__origAddTokens;
+        delete window.blooketGame.__origAddTokens;
+    }
+    console.log("%c🧹 All hacks have been reset!", "color:#ffaa66");
+    alert("Hacks reset! Page refresh may be needed for full restore.");
+})();
+`;
+  }
+
+  // 7. MASTER ALL HACKS (combined)
+  function getAllHacksCode() {
+    return `(function(){
+        ${getAutoAnswerCode().replace(/^\(function\(\)\{|\}\)\(\);$/g, '').trim()}
+        ${getInfiniteTokensCode().replace(/^\(function\(\)\{|\}\)\(\);$/g, '').trim()}
+        ${getSpeedHackCode().replace(/^\(function\(\)\{|\}\)\(\);$/g, '').trim()}
+        ${getAutoFarmerCode().replace(/^\(function\(\)\{|\}\)\(\);$/g, '').trim()}
+        ${getRevealAnswersCode().replace(/^\(function\(\)\{|\}\)\(\);$/g, '').trim()}
+        console.log("%c🔥 ALL BLOOKET HACKS ACTIVATED! 🔥", "color:#2affb0; font-size:16px");
+    })();`;
+  }
+
+  // helper to create bookmarklet href
+  function makeBookmarklet(code) {
+    let minified = code
+      .replace(/\s+/g, ' ')
+      .replace(/\/\*.*?\*\//g, '')
+      .trim();
+    return 'javascript:' + encodeURIComponent(minified);
+  }
+
+  // update main bookmarklet display and link
+  function updateMainBookmarklet() {
+    const allHacksCombined = getAllHacksCode();
+    const bookmarkletUrl = makeBookmarklet(allHacksCombined);
+    const linkEl = document.getElementById('bookmarkletLink');
+    linkEl.setAttribute('href', bookmarkletUrl);
+    // show preview
+    let preview = allHacksCombined.length > 200 ? allHacksCombined.substring(0, 180) + '...' : allHacksCombined;
+    document.getElementById('bookmarkletCodeDisplay').innerText = 'javascript:' + preview;
+  }
+
+  // create draggable bookmarklet for specific hack (popup for drag)
+  function createDragButtonForHack(hackName, codeGenerator, elementId) {
+    const btn = document.getElementById(elementId);
+    if (!btn) return;
+    const code = codeGenerator();
+    const bookmarkletUrl = makeBookmarklet(code);
+    // make the whole div draggable as bookmarklet
+    btn.setAttribute('draggable', 'true');
+    btn.addEventListener('dragstart', (e) => {
+      e.dataTransfer.setData('text/plain', bookmarkletUrl);
+      e.dataTransfer.effectAllowed = 'copy';
+      // Also set bookmarklet url as URL
+      const dragLink = document.createElement('a');
+      dragLink.href = bookmarkletUrl;
+      dragLink.innerText = hackName;
+      e.dataTransfer.setDragImage(dragLink, 0, 0);
+      // For some Chromebooks: set text
+      e.dataTransfer.setData('text/uri-list', bookmarkletUrl);
+      e.dataTransfer.setData('text/plain', bookmarkletUrl);
+    });
+    btn.addEventListener('click', (e) => {
+      // if not dragging, show info alert to drag instead of click (because click would not inject)
+      alert(`📌 Drag this "${hackName}" button to your bookmarks bar!\n\nThen open Blooket and click the bookmark.`);
+    });
+    // add tooltip
+    btn.title = `Drag to bookmarks bar → then click on Blooket game`;
+  }
+
+  function createIndividualDrags() {
+    createDragButtonForHack('Instant Correct', getAutoAnswerCode, 'quickAutoAnswer');
+    createDragButtonForHack('Infinite Tokens', getInfiniteTokensCode, 'quickInfiniteTokens');
+    createDragButtonForHack('2.5x Speed', getSpeedHackCode, 'quickSpeedHack');
+    createDragButtonForHack('Auto Farmer', getAutoFarmerCode, 'quickAutoFarmer');
+    createDragButtonForHack('Reveal Answers', getRevealAnswersCode, 'quickRevealAnswers');
+    createDragButtonForHack('🔥 ALL HACKS', getAllHacksCode, 'quickAllHacks');
+    createDragButtonForHack('Reset All', getResetCode, 'quickReset');
+  }
+
+  // alternative: helper to also add direct 'copy to clipboard' fallback (optional for extra usability)
+  function addCopyFallback() {
+    const allBtns = document.querySelectorAll('.hack-btn');
+    allBtns.forEach(btn => {
+      btn.addEventListener('auxclick', (e) => {
+        if (e.button === 1) { // middle click
+          let hackCode = '';
+          if (btn.id === 'quickAutoAnswer') hackCode = getAutoAnswerCode();
+          else if (btn.id === 'quickInfiniteTokens') hackCode = getInfiniteTokensCode();
+          else if (btn.id === 'quickSpeedHack') hackCode = getSpeedHackCode();
+          else if (btn.id === 'quickAutoFarmer') hackCode = getAutoFarmerCode();
+          else if (btn.id === 'quickRevealAnswers') hackCode = getRevealAnswersCode();
+          else if (btn.id === 'quickAllHacks') hackCode = getAllHacksCode();
+          else if (btn.id === 'quickReset') hackCode = getResetCode();
+          if (hackCode) {
+            navigator.clipboard.writeText(hackCode).then(() => {
+              alert('✅ Hack code copied! You can paste it into console if available, but better: drag the button to bookmarks.');
+            }).catch(() => alert('Could not copy, but drag works!'));
+          }
+        }
+      });
+    });
+  }
+
+  // For the main drag handle: improve draggable
+  const mainDragBtn = document.getElementById('dragHandle');
+  if (mainDragBtn) {
+    const masterCode = getAllHacksCode();
+    const masterUrl = makeBookmarklet(masterCode);
+    mainDragBtn.parentElement.setAttribute('href', masterUrl);
+    mainDragBtn.parentElement.setAttribute('draggable', 'true');
+    mainDragBtn.parentElement.addEventListener('dragstart', (e) => {
+      e.dataTransfer.setData('text/plain', masterUrl);
+      e.dataTransfer.setData('text/uri-list', masterUrl);
+      e.dataTransfer.effectAllowed = 'copy';
+      const fakeLink = document.createElement('a');
+      fakeLink.href = masterUrl;
+      fakeLink.innerText = 'Blooket Hacks';
+      e.dataTransfer.setDragImage(fakeLink, 0, 0);
+    });
+    mainDragBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      alert('📌 DRAG this whole green button to your bookmarks bar!\n\nThen go to Blooket game page and click the bookmark → hack menu activates automatically.');
+    });
+  }
+
+  // update main bookmarklet on page load
+  updateMainBookmarklet();
+  createIndividualDrags();
+  addCopyFallback();
+
+  // extra instructions for chromebook
+  console.log("%cBlooket Injector ready - drag any hack to bookmarks bar", "color:#2affb0");
+  
+  // little helper: show toast
+  function showMessage(msg) {
+    let div = document.createElement('div');
+    div.innerText = msg;
+    div.style.cssText = 'position:fixed; bottom:80px; left:20px; background:#0f212e; color:white; padding:10px 18px; border-radius:30px; z-index:999999; font-size:12px; border-left:4px solid #2affb0;';
+    document.body.appendChild(div);
+    setTimeout(()=>div.remove(), 3000);
+  }
+  
+  // display initial friendly note
+  setTimeout(() => 
